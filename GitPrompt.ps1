@@ -4,7 +4,8 @@
 $global:GitPromptSettings = New-Object PSObject -Property @{
     DefaultForegroundColor    = $Host.UI.RawUI.ForegroundColor
 
-    BeforeText                = "`b$([char]0xE0B0) $([char]0xE0A0) "
+    #BeforeText                = "`b$([char]0xE0B0) $([char]0xE0A0) "
+    BeforeText                = "`b$([char]0xE0B0) "
     BeforeForegroundColor     = [ConsoleColor]::DarkCyan
     BeforeBackgroundColor     = [ConsoleColor]::Cyan
     DelimText                 = " $([char]0xE0B1)"
@@ -86,7 +87,9 @@ function Write-GitStatus($status) {
             $branchForegroundColor = $s.BranchAheadForegroundColor
         }
 
-        Write-Prompt $status.Branch -BackgroundColor $branchBackgroundColor -ForegroundColor $branchForegroundColor
+        Write-Prompt ("$([char]0xE0A0) " + $status.Branch) -BackgroundColor $branchBackgroundColor -ForegroundColor $branchForegroundColor
+
+        Write-Prompt " $([char]0xE0B1)" -BackgroundColor $branchBackgroundColor -ForegroundColor $s.DelimForegroundColor
 
         if($s.EnableFileStatus -and $status.HasIndex) {
             Write-Prompt $s.BeforeIndexText -BackgroundColor $s.BeforeIndexBackgroundColor -ForegroundColor $s.BeforeIndexForegroundColor
