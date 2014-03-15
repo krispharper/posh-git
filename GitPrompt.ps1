@@ -4,7 +4,6 @@
 $global:GitPromptSettings = New-Object PSObject -Property @{
     DefaultForegroundColor    = $Host.UI.RawUI.ForegroundColor
 
-    #BeforeText                = "`b$([char]0xE0B0) $([char]0xE0A0) "
     BeforeText                = "`b$([char]0xE0B0) "
     BeforeForegroundColor     = [ConsoleColor]::DarkCyan
     BeforeBackgroundColor     = [ConsoleColor]::Cyan
@@ -89,9 +88,10 @@ function Write-GitStatus($status) {
 
         Write-Prompt ("$([char]0xE0A0) " + $status.Branch) -BackgroundColor $branchBackgroundColor -ForegroundColor $branchForegroundColor
 
-        Write-Prompt " $([char]0xE0B1)" -BackgroundColor $branchBackgroundColor -ForegroundColor $s.DelimForegroundColor
 
         if($s.EnableFileStatus -and $status.HasIndex) {
+            Write-Prompt " $([char]0xE0B1)" -BackgroundColor $branchBackgroundColor -ForegroundColor $s.DelimForegroundColor
+
             Write-Prompt $s.BeforeIndexText -BackgroundColor $s.BeforeIndexBackgroundColor -ForegroundColor $s.BeforeIndexForegroundColor
 
             if($s.ShowStatusWhenZero -or $status.Index.Added) {
@@ -114,6 +114,8 @@ function Write-GitStatus($status) {
         }
 
         if($s.EnableFileStatus -and $status.HasWorking) {
+            Write-Prompt " $([char]0xE0B1)" -BackgroundColor $branchBackgroundColor -ForegroundColor $s.DelimForegroundColor
+
             if($s.ShowStatusWhenZero -or $status.Working.Added) {
               Write-Prompt " +$($status.Working.Added.Count)" -BackgroundColor $s.WorkingBackgroundColor -ForegroundColor $s.WorkingForegroundColor
             }
@@ -130,6 +132,7 @@ function Write-GitStatus($status) {
         }
 
         if ($status.HasUntracked) {
+            Write-Prompt " $([char]0xE0B1)" -BackgroundColor $branchBackgroundColor -ForegroundColor $s.DelimForegroundColor
             Write-Prompt $s.UntrackedText -BackgroundColor $s.UntrackedBackgroundColor -ForegroundColor $s.UntrackedForegroundColor
         }
 
