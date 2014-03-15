@@ -4,39 +4,39 @@
 $global:GitPromptSettings = New-Object PSObject -Property @{
     DefaultForegroundColor    = $Host.UI.RawUI.ForegroundColor
 
-    BeforeText                = ' ['
-    BeforeForegroundColor     = [ConsoleColor]::Yellow
-    BeforeBackgroundColor     = $Host.UI.RawUI.BackgroundColor
-    DelimText                 = ' |'
-    DelimForegroundColor      = [ConsoleColor]::Yellow
-    DelimBackgroundColor      = $Host.UI.RawUI.BackgroundColor
+    BeforeText                = "`b$([char]0xE0B0) $([char]0xE0A0) "
+    BeforeForegroundColor     = [ConsoleColor]::DarkCyan
+    BeforeBackgroundColor     = [ConsoleColor]::Cyan
+    DelimText                 = " $([char]0xE0B1)"
+    DelimForegroundColor      = [ConsoleColor]::DarkCyan
+    DelimBackgroundColor      = [ConsoleColor]::Cyan
 
-    AfterText                 = ']'
-    AfterForegroundColor      = [ConsoleColor]::Yellow
+    AfterText                 = "$([char]0xE0B0)"
+    AfterForegroundColor      = [ConsoleColor]::Cyan
     AfterBackgroundColor      = $Host.UI.RawUI.BackgroundColor
 
-    BranchForegroundColor       = [ConsoleColor]::Cyan
-    BranchBackgroundColor       = $Host.UI.RawUI.BackgroundColor
-    BranchAheadForegroundColor  = [ConsoleColor]::Green
-    BranchAheadBackgroundColor  = $Host.UI.RawUI.BackgroundColor
-    BranchBehindForegroundColor = [ConsoleColor]::Red
-    BranchBehindBackgroundColor = $Host.UI.RawUI.BackgroundColor
-    BranchBehindAndAheadForegroundColor = [ConsoleColor]::Yellow
-    BranchBehindAndAheadBackgroundColor = $Host.UI.RawUI.BackgroundColor
+    BranchForegroundColor       = [ConsoleColor]::DarkCyan
+    BranchBackgroundColor       = [ConsoleColor]::Cyan
+    BranchAheadForegroundColor  = [ConsoleColor]::DarkGreen
+    BranchAheadBackgroundColor  = [ConsoleColor]::Cyan
+    BranchBehindForegroundColor = [ConsoleColor]::DarkRed
+    BranchBehindBackgroundColor = [ConsoleColor]::Cyan
+    BranchBehindAndAheadForegroundColor = [ConsoleColor]::DarkYellow
+    BranchBehindAndAheadBackgroundColor = [ConsoleColor]::Cyan
 
     BeforeIndexText           = ""
     BeforeIndexForegroundColor= [ConsoleColor]::DarkGreen
-    BeforeIndexBackgroundColor= $Host.UI.RawUI.BackgroundColor
+    BeforeIndexBackgroundColor= [ConsoleColor]::Cyan
 
     IndexForegroundColor      = [ConsoleColor]::DarkGreen
-    IndexBackgroundColor      = $Host.UI.RawUI.BackgroundColor
+    IndexBackgroundColor      = [ConsoleColor]::Cyan
 
     WorkingForegroundColor    = [ConsoleColor]::DarkRed
-    WorkingBackgroundColor    = $Host.UI.RawUI.BackgroundColor
+    WorkingBackgroundColor    = [ConsoleColor]::Cyan
 
     UntrackedText             = ' !'
     UntrackedForegroundColor  = [ConsoleColor]::DarkRed
-    UntrackedBackgroundColor  = $Host.UI.RawUI.BackgroundColor
+    UntrackedBackgroundColor  = [ConsoleColor]::Cyan
 
     ShowStatusWhenZero        = $true
 
