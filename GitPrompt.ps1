@@ -136,6 +136,7 @@ function Write-GitStatus($status) {
             Write-Prompt $s.UntrackedText -BackgroundColor $s.UntrackedBackgroundColor -ForegroundColor $s.UntrackedForegroundColor
         }
 
+        Write-Prompt " " -BackgroundColor $s.UntrackedBackgroundColor -ForegroundColor $s.UntrackedBackgroundColor
         Write-Prompt $s.AfterText -BackgroundColor $s.AfterBackgroundColor -ForegroundColor $s.AfterForegroundColor
 
         if ($WindowTitleSupported -and $s.EnableWindowTitle) {
